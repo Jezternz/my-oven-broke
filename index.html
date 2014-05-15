@@ -1,1 +1,114 @@
-Hello World
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style type="text/css">
+#container { position:fixed; top:0; right:0; left:0; bottom:0; background:#eee; display: flex; align-items: center; justify-content: center; }
+#explanation {position:absolute;}
+#oven { display:inline-block;width:400px;height:400px;background:gray; }
+#oven-top { position:relative;display:inline-block;width:100%;height:20%;background:green;}
+#oven-actual { position:relative; display:inline-block;width:100%;height:80%;background:blue;}
+#oven-handle { position:absolute; left:10%;right:10%;top:10%;height:5%; background:gray;}
+#oven-window { position:absolute; left:10%;right:10%;top:20%;height:70%; background:teal;}
+#setting { left:10%;  }
+#temperature { left:30%;  }
+#timer { left:80%;  }
+.gauge { position:absolute;width:50px;height:50px; top:20%; cursor:default; }
+.knob { position:absolute;width:100%;height:40%;top:30%;background:pink;border-radius: 50px 5px 5px 50px;-webkit-transform: rotate(90deg); }
+.opts { position:absolute; left:50%;right:50%;width:0;height:0; font-family:verdana; font-size:9px; font-weight:bold; }
+.opts span { position:absolute; display:inline-block; width:30px; text-align:center; }
+.opt1 { left: -15px; top: -25px; }
+.opt2 { left: 18px; top: -7px; }
+.opt3 { left: 23px; top: 18px; }
+.opt4 { left: 14px; top: 41px; }
+.opt5 { left: -15px; top:50px; }
+.opt6 { left: -47px; top: 42px; }
+.opt7 { left: -57px; top: 18px; }
+    </style>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+var state = {
+    "targetKnob": false,
+    "centerKnobPosition": [0, 0],
+    "relativeDegrees": 0
+};
+var eventHandlers = {
+    "mousedown": function(evt)
+    {
+        evt.preventDefault();
+        if($(evt.target).is(".knob"))
+        {
+            state.targetKnob = $(evt.target).closest(".gauge").attr("id");
+            state.centerKnobPosition[0] = Math.round($(evt.target).offset().left + ($(evt.target).width()/2));
+            state.centerKnobPosition[1] = Math.round($(evt.target).offset().top + ($(evt.target).height()/2));
+        }
+    },
+    "mousemove": function(evt)
+    {
+        if(state.targetKnob)
+        {
+            var theta = Math.atan2(-(evt.clientY-state.centerKnobPosition[1]), (evt.clientX-state.centerKnobPosition[0]));
+            if (theta < 0)theta += 2 * Math.PI;
+            theta = theta * (180 / Math.PI);
+            theta = ((360 - theta)+180)%360;
+            state.relativeDegrees = Math.round(theta);
+            $('#'+state.targetKnob+' .knob').css("-webkit-transform", "rotate(" + state.relativeDegrees + "deg)");
+        }
+    },
+    "mouseup": function(evt)
+    {
+        state.targetKnob = false;
+        console.log(state)
+    }
+};
+$(function()
+{
+  $(document).on(eventHandlers);
+});
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <span id="explanation">"Us programmers cannot express feelings in words, so instead we use webpages" - A smart programmer</span>
+      <span id="oven">
+          <span id="oven-top">
+              <div id="setting" class="gauge">
+                  <div class="opts">
+                      <span class="opt1">OFF</span>
+                      <span class="opt3">BAKE</span>
+                      <span class="opt5">FAN BAKE</span>
+                      <span class="opt7">GRILL</span>                    
+                  </div>
+                  <div class="knob">&nbsp;</div>
+              </div>
+              <div id="temperature" class="gauge">
+                  <div class="opts">
+                      <span class="opt1">0</span>
+                      <span class="opt2">50</span>
+                      <span class="opt3">100</span>
+                      <span class="opt4">150</span>
+                      <span class="opt5">200</span>
+                      <span class="opt6">250</span>                 
+                  </div>
+                  <div class="knob">&nbsp;</div>
+              </div>
+              <div id="timer" class="gauge">
+                  <div class="opts">
+                      <span class="opt1">AUTO OFF</span>
+                      <span class="opt2">20</span>
+                      <span class="opt3">40</span>
+                      <span class="opt4">60</span>
+                      <span class="opt5">80</span>
+                      <span class="opt6">100</span>
+                      <span class="opt7">120</span>                 
+                  </div>
+                  <div class="knob">&nbsp;</div>
+              </div>
+          </span>
+          <span id="oven-actual">
+              <div id="oven-handle"></div>
+              <div id="oven-window"></div>
+          </span>
+      </span>    
+    </div>
+  </body>
+</html>
