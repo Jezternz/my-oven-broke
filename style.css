@@ -1,0 +1,23 @@
+#container { position:fixed; top:0; right:0; left:0; bottom:0; background:#eee; display: flex; align-items: center; justify-content: center; }
+#explanation {position:absolute;}
+#oven {position:relative; position: relative;display:inline-block;width:500px;height: 450px; }
+#oven-top { position:absolute;display:inline-block;width:100%;height:28%;background: linear-gradient(to bottom right, #9B9B9B , #BDBDBD);border-radius: 5px 5px 0 0;box-shadow: inset 1px 1px 27px #868686;border: 3px solid #777;box-sizing: border-box;}
+#oven-actual { position:absolute; box-sizing:border-box;bottom: 0;display:inline-block;width:100%;height:72%; background: linear-gradient(to bottom right, #9B9B9B , #BDBDBD);box-shadow: inset 1px 1px 27px #868686;border: 2px solid #C5C5C5;}
+#oven-handle { position:absolute; left:10%;right:10%;top:10%;height:5%; background: linear-gradient(to bottom, #4D4D4D, #7E7E7E);border-radius: 3px;border: 1px solid #616161;}
+#oven-window { position:absolute; left:10%;right:10%;top:20%;height:70%; background: linear-gradient(to bottom, #627D4D 0%, #1F3B08 100%);border: 1px solid #6D6D6D;box-shadow: inset 0 0 10px 10px #032500;border-radius: 2px;}
+#setting { left:10%;  }
+#temperature { left:30%;  }
+#timer { left:80%;  }
+.gauge { position:absolute;width:50px;height:50px; top: 42px; cursor:default; }
+.knob { position: absolute;width: 100%;height: 40%;top: 30%;background: linear-gradient(to bottom right, #888 , #A0A0A0);border: 1px solid #6B6B6B;border-radius: 50px 5px 5px 50px;-webkit-transform: rotate(90deg);box-shadow: inset 0 0 10px 0 #808080; }
+.opts { position:absolute; left:50%;right:50%;width:0;height:0; font-family:verdana; font-size:9px; font-weight:bold; }
+.opts span { position:absolute; display:inline-block; width:30px; text-align:center; line-height: 9px; color: #424242; text-shadow: 1px 1px 0 #B6B6B6;}
+.opts .optAbove{ color: #008000;top: -34px;left: -20px;width: 40px;text-decoration: underline;}
+.opt1 { left: -15px; bottom: 1px; }
+.opt2 { left: 18px; top: -7px; }
+.opt3 { left: 23px; top: 18px; }
+.opt4 { left: 14px; top: 41px; }
+.opt5 { left: -15px; top: 53px; }
+.opt6 { left: -47px; top: 42px; }
+.opt7 { left: -57px; top: 18px; }
+.opt8 { left: -57px; top: 18px; }
