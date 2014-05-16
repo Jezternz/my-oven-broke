@@ -19,18 +19,19 @@ $(function()
             "mousedown touchstart": function(evt)
             {
                 $('#arrowtext, #arrow').hide();
-                if($(evt.target).is(".knob"))
+                var $target = $(evt.target).is(".knob") ? $(evt.target).parent() : $(evt.target);
+                if($target.is(".gauge"))
                 {
                     evt.preventDefault();
                     $(window).focus();
                     $('#'+state.targetKnob).focus(); 
-                    state.targetKnob = $(evt.target).closest(".gauge").attr("id");
-                    state.centerKnobPosition[0] = Math.round($(evt.target).parent().offset().left + ($(evt.target).parent().width()/2));
-                    state.centerKnobPosition[1] = Math.round($(evt.target).parent().offset().top + ($(evt.target).parent().height()/2));
+                    state.targetKnob = $target.attr("id");
+                    state.centerKnobPosition[0] = Math.round($target.offset().left + ($target.width()/2));
+                    state.centerKnobPosition[1] = Math.round($target.offset().top + ($target.height()/2));
                 }
-                else if($(evt.target).is("#explosion"))
+                else if($target.is("#explosion"))
                 {
-                    $('#explosion').hide();
+                    $target.hide();
                 }
             },
             "mousemove touchmove": function(evt)
