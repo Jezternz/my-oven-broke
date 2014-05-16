@@ -7,10 +7,13 @@
   </head>
   <body>
       <div id="container">
-        <span id="explanation">"Us programmers cannot express feelings in words, so instead we use webpages" - A smart programmer</span>
+        <img id="explosion" style="display:none;" src="http://media.giphy.com/media/uSHMDTUL7lKso/giphy.gif" width="100%" height="100%" />
+        <img id="arrow" src="http://gulbargawebdesign.com/blog/wp-content/uploads/2012/01/round_arrow1.gif" />
+        <div id="arrowtext">Try turn the knob</div>
         <span id="oven">
+            <div id="title">Turn on the oven, do it.</div>
             <span id="oven-top">
-                <div id="setting" class="gauge">
+                <div id="setting" class="gauge" tabindex="-1" data-hint="This is unrealistic, no-one sane would try this first.">
                     <div class="opts">
                         <span class="optAbove">Function</span>
                         <span class="opt1">OFF</span>
@@ -20,7 +23,7 @@
                     </div>
                     <div class="knob">&nbsp;</div>
                 </div>
-                <div id="temperature" class="gauge">
+                <div id="temperature" class="gauge" tabindex="-1" data-hint="This is completely illogical, try again.">
                     <div class="opts">
                         <span class="optAbove">Oven</span>
                         <span class="opt1">0</span>
