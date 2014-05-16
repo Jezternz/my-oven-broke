@@ -38,8 +38,8 @@ $(function()
                 if(state.targetKnob)
                 {
                     var 
-                    x = (evt.type === "touchmove") ? evt.touches[0].pageX : evt.clientX,
-                        y = (evt.type === "touchmove") ? evt.touches[1].pageX : evt.clientY;
+                      x = (evt.type === "touchmove") ? evt.originalEvent.touches[0].pageX : evt.clientX,
+                      y = (evt.type === "touchmove") ? evt.originalEvent.touches[1].pageX : evt.clientY;
                     var theta = Math.atan2(-(y-state.centerKnobPosition[1]), (x-state.centerKnobPosition[0]));
                     if (theta < 0)theta += 2 * Math.PI;
                     theta = theta * (180 / Math.PI);
