@@ -1,5 +1,9 @@
 #container { position:fixed; top:0; right:0; left:0; bottom:0; background:#eee; display: flex; align-items: center; justify-content: center; }
+#explosion{ position:fixed; left:0;right:0;bottom:0;top:0;display:block;z-index:99; }
 #explanation {position:absolute;}
+#title{position: absolute;text-align: center;top: -52px;left: 0;right: 0;letter-spacing: 2px;color: #007A27;font-weight: 100;font: 14px/1.6 "Helvetica Neue", Helvetica, Arial, sans-serif;font-size: 30px;}
+#arrow {position:absolute;z-index: 1;width: 100px;height: 100px;left: 134px;top: 72px;}
+#arrowtext {position: absolute;z-index: 1;left: 134px;top: 172px;background: #FFF;border: 2px solid #C50000;color: #C50000;border-radius: 7px;padding: 7px;font-family: arial;letter-spacing: -1px;font-weight: bold;}
 #oven {position:relative; position: relative;display:inline-block;width:500px;height: 450px; }
 #oven-top { position:absolute;display:inline-block;width:100%;height:28%;background: linear-gradient(to bottom right, #9B9B9B , #BDBDBD);border-radius: 5px 5px 0 0;box-shadow: inset 1px 1px 27px #868686;border: 3px solid #777;box-sizing: border-box;}
 #oven-actual { position:absolute; box-sizing:border-box;bottom: 0;display:inline-block;width:100%;height:72%; background: linear-gradient(to bottom right, #9B9B9B , #BDBDBD);box-shadow: inset 1px 1px 27px #868686;border: 2px solid #C5C5C5;}
@@ -21,3 +25,6 @@
 .opt6 { left: -47px; top: 42px; }
 .opt7 { left: -57px; top: 18px; }
 .opt8 { left: -57px; top: 18px; }
+*[data-hint]{outline:none;}
+*[data-hint]:focus:before{ position: absolute;content: attr(data-hint);background: #FFF;border: 1px solid #808080;border-radius: 3px;font-family: verdana;letter-spacing: -1px;font-size: 12px;white-space: nowrap;padding: 4px 8px;top: -37px;z-index: 1;}
+*[data-hint]:focus:after{ content: " ";width:0px; height:0px;border-color: #666 transparent transparent transparent;border-style:solid;border-width:10px;position: absolute;left: 5px;top: -14px;z-index:2; }
