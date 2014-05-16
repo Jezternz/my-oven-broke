@@ -16,7 +16,7 @@ $(function()
       rotateEl($('.knob'), 90);
       (new Image()).src = state.explosiongif;
       $(document).on({
-            "mousedown": function(evt)
+            "mousedown touchstart": function(evt)
             {
                 $('#arrowtext, #arrow').hide();
                 if($(evt.target).is(".knob"))
@@ -33,11 +33,14 @@ $(function()
                     $('#explosion').hide();
                 }
             },
-            "mousemove": function(evt)
+            "mousemove touchmove": function(evt)
             {
                 if(state.targetKnob)
                 {
-                    var theta = Math.atan2(-(evt.clientY-state.centerKnobPosition[1]), (evt.clientX-state.centerKnobPosition[0]));
+                    var 
+                    x = (evt.type === "touchmove") ? event.touches[0].pageX : evt.clientX,
+                        y = (evt.type === "touchmove") ? event.touches[1].pageX : evt.clientY;
+                    var theta = Math.atan2(-(y-state.centerKnobPosition[1]), (x-state.centerKnobPosition[0]));
                     if (theta < 0)theta += 2 * Math.PI;
                     theta = theta * (180 / Math.PI);
                     theta = ((360 - theta)+180)%360;
@@ -45,7 +48,7 @@ $(function()
                     rotateEl($('#'+state.targetKnob+' .knob'), state.relativeDegrees);
                 }
             },
-            "mouseup": function(evt)
+            "mouseup touchend": function(evt)
             {
                 if(state.targetKnob)
                 {
