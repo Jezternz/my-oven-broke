@@ -1,10 +1,10 @@
-#container { position:fixed; top:0; right:0; left:0; bottom:0; background:#eee; display: flex; align-items: center; justify-content: center; }
+#container { position:fixed; top:0; right:0; left:0; bottom:0; background:#eee; 0 auto; }
 #explosion{ position:fixed; left:0;right:0;bottom:0;top:0;display:block;z-index:99; }
 #explanation {position:absolute;}
 #title{position: absolute;text-align: center;top: -52px;left: 0;right: 0;letter-spacing: 2px;color: #007A27;font-weight: 100;font: 14px/1.6 "Helvetica Neue", Helvetica, Arial, sans-serif;font-size: 30px;}
 #arrow {position:absolute;z-index: 1;width: 100px;height: 100px;left: -58px;top: 17px;}
 #arrowtext {position: absolute;z-index: 1;left: -60px;top: 117px;background: #FFF;border: 2px solid #C50000;color: #C50000;border-radius: 7px;padding: 7px;font-family: arial;letter-spacing: -1px;font-weight: bold;}
-#oven {position:relative; position: relative;display:inline-block;width:500px;height: 450px; }
+#oven {position:relative; position: relative;display: block;width:500px;height: 450px;margin: 100px auto 0 auto; }
 #oven-top { position:absolute;display:inline-block;width:100%;height:28%;background: linear-gradient(to bottom right, #9B9B9B , #BDBDBD);border-radius: 5px 5px 0 0;box-shadow: inset 1px 1px 27px #868686;border: 3px solid #777;box-sizing: border-box;}
 #oven-actual { position:absolute; box-sizing:border-box;bottom: 0;display:inline-block;width:100%;height:72%; background: linear-gradient(to bottom right, #9B9B9B , #BDBDBD);box-shadow: inset 1px 1px 27px #868686;border: 2px solid #C5C5C5;}
 #oven-handle { position:absolute; left:10%;right:10%;top:10%;height:5%; background: linear-gradient(to bottom, #4D4D4D, #7E7E7E);border-radius: 3px;border: 1px solid #616161;}
@@ -13,7 +13,7 @@
 #temperature { left:30%;  }
 #timer { left:80%;  }
 .gauge { position:absolute;width:50px;height:50px; top: 42px; cursor:default; }
-.knob { position: absolute;width: 100%;height: 40%;top: 30%;background: linear-gradient(to bottom right, #888 , #A0A0A0);border: 1px solid #6B6B6B;border-radius: 50px 5px 5px 50px;-webkit-transform: rotate(90deg);box-shadow: inset 0 0 10px 0 #808080; }
+.knob { position: absolute;width: 100%;height: 40%;top: 30%;background: linear-gradient(to bottom right, #888 , #A0A0A0);border: 1px solid #6B6B6B;border-radius: 50px 5px 5px 50px; -webkit-transform: rotate(90deg);-moz-transform: rotate(90deg);-ms-transform: rotate(90deg);-o-transform: rotate(90deg);transform: rotate(90deg);box-shadow: inset 0 0 10px 0 #808080; }
 .opts { position:absolute; left:50%;right:50%;width:0;height:0; font-family:verdana; font-size:9px; font-weight:bold; }
 .opts span { position:absolute; display:inline-block; width:30px; text-align:center; line-height: 9px; color: #424242; text-shadow: 1px 1px 0 #B6B6B6;}
 .opts .optAbove{ color: #008000;top: -34px;left: -20px;width: 40px;text-decoration: underline;}
