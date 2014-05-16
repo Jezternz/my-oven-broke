@@ -6,6 +6,14 @@ $(function()
             "centerKnobPosition": [0, 0],
             "relativeDegrees": 0
         };
+      var rotateEl = function($el, deg)
+      {
+          ["-webkit-transform", "-moz-transform", "-ms-transform", "-o-transform", "transform"].forEach(function(r)
+          {  
+              $el.css(r, "rotate(" + deg + "deg)"); 
+          });
+      }
+      rotateEl($('.knob'), 90);
       (new Image()).src = state.explosiongif;
       $(document).on({
             "mousedown": function(evt)
@@ -34,7 +42,7 @@ $(function()
                     theta = theta * (180 / Math.PI);
                     theta = ((360 - theta)+180)%360;
                     state.relativeDegrees = Math.round(theta);
-                    $('#'+state.targetKnob+' .knob').css("-webkit-transform", "rotate(" + state.relativeDegrees + "deg)");
+                    rotateEl($('#'+state.targetKnob+' .knob'), state.relativeDegrees);
                 }
             },
             "mouseup": function(evt)
